@@ -108,6 +108,12 @@ section {
     line-height: 1.3;
 }
 
+.home-content h2 {
+    position: relative;
+    font-size: 2.6rem;
+    margin: 2rem 0 3rem;
+}
+
 
 /* Social icons */
 .home-sci {
@@ -192,8 +198,17 @@ span {
 
 .about-content p {
     position: relative;
-    font-size: 1.6rem;
+    font-size: 2.3rem;
+    font-weight: 1.6rem;
     margin: 2rem 0 3rem;
+}
+
+.additional-text {
+    display: none;
+}
+
+.additional-text.show {
+    display: block;
 }
 
 /* Button styles */
@@ -271,9 +286,10 @@ span {
 }
 
 .project-box {
+    position: relative;
     width: 100%;
-    max-width: 300px;
-    border: 2px solid var(--main-color);
+    max-width: 500px;
+    border: 3px solid var(--main-color);
     border-radius: 25px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Add transitions for transform, box-shadow, and filter */
@@ -281,13 +297,32 @@ span {
 
 .project-box img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
 
+.project-content {
+    position: absolute; /* Position the content absolutely */
+    bottom: 0; /* Align content to the bottom */
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 246, 133, 0); /* Semi-transparent background */
+    z-index: 1; /* Ensure content appears above the image */
+    transition: background-color 0.3s ease; /* Add transition for background-color */
+    opacity: 0; /* Hide the content by default */
+    pointer-events: none; /* Ensure content is not clickable by default */
+}
+
+.project-box:hover .project-content {
+    background-color: rgba(255, 246, 133, 0.8); /* Semi-transparent grey background on hover */
+    opacity: 1;
+    pointer-events: auto;
+}
+
 .project-box:hover {
-    transform: scale(1.1); /* Magnify the portfolio box on hover */
+    transform: scale(1.2); /* Magnify the portfolio box on hover */
     box-shadow: 0 0 20px var(--main-color); /* Add a shadow effect */
     filter: brightness(110%); /* Increase brightness for glowing effect */
 }
@@ -299,17 +334,19 @@ span {
 .project-content h3 {
     margin-bottom: 5px;
     color: var(--main-color);
+    font-size: 1.8rem;
 }
 
 .project-content p {
     color: var(--main-color);
     margin: 0;
+    font-size: 1.6rem;
 }
 
 /* Contact section */
 .contact {
-    min-height: auto;
-    padding-bottom: 7rem;
+    min-height: 90vh;
+    /* padding-bottom: 2rem; */
     background: var(--fourth-bg-color);
 }
 

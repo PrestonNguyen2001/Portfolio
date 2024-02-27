@@ -36,3 +36,20 @@ window.onscroll = () => {
     menuIcon.classList.remove('bx-x');
     navbar.classList.remove('active');
 }
+
+// Add event listeners for "Read More" buttons
+let readMoreButtons = document.querySelectorAll('.read-more');
+let additionalTexts = document.querySelectorAll('.additional-text');
+
+readMoreButtons.forEach((button, index) => {
+    button.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent the default action of the anchor tag
+        additionalTexts[index].classList.toggle('show');
+        
+        // Hide the button when the additional text is shown
+        if (additionalTexts[index].classList.contains('show')) {
+            button.style.display = 'none';
+        }
+    });
+});
+
