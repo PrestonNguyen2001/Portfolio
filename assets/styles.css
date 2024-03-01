@@ -281,7 +281,7 @@ span {
 
 .project-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr repeat(2, minmax(1, 1fr)); /* Change grid template columns */
     grid-gap: 120px;
 }
 
@@ -289,11 +289,21 @@ span {
     position: relative;
     width: 100%;
     max-width: 500px;
-    border: 3px solid var(--main-color);
+    border: 3px solid var(--text-color);
     border-radius: 25px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Add transitions for transform, box-shadow, and filter */
 }
+
+/* Target the first project box */
+.project-box:first-child {
+    grid-column: span 2; /* Span 2 columns */
+    width: calc(100% + 60px); /* Adjust width to cover the gap */
+    align-items: center;
+    justify-self: center;
+    margin-top: 20px; /* Adjust margin */
+}
+
 
 .project-box img {
     width: 100%;
@@ -323,7 +333,7 @@ span {
 
 .project-box:hover {
     transform: scale(1.2); /* Magnify the portfolio box on hover */
-    box-shadow: 0 0 20px var(--main-color); /* Add a shadow effect */
+    box-shadow: 0 0 20px var(--text-color); /* Add a shadow effect */
     filter: brightness(110%); /* Increase brightness for glowing effect */
 }
 
